@@ -1,0 +1,90 @@
+import random
+
+def secret_number_one():
+    level1 = random.randint(1,10)
+    return level1
+def secret_number_two():
+    level2 = random.randint(1, 20)
+    return level2
+def secret_number_three():
+    level3 = random.randint(1, 50)
+    return level3
+
+def level_selection():
+
+    user_input = input("""welcome to the capital guessing game 
+    we have three levels : easy, medium and hard 
+        enter easy for easy level
+        enter medium for medium level
+        enter hard for hard level
+        
+        >>>>  """).lower()
+    return user_input
+while True:
+    levelselection = level_selection()
+
+    if levelselection == "easy":
+        secretnumber = secret_number_one()
+        print("welcome to the easy level youve got 6 tries to guess a number between 1 to 10 ")
+        i = 1
+        while i <= 6:
+            try:
+                user_guess = int(input("enter your guess>>> "))
+
+                if user_guess== secretnumber:
+                    print("correct guess  ")
+                    break
+                elif i == 6:
+                    print("game over ")
+                else:
+                    print("that was wrong")
+                    print("you have", 6-i , "tries left")
+                i+=1
+            except ValueError:
+                print("oops enter a number ")
+
+    elif levelselection == "medium":
+        secretnumber = secret_number_two()
+        print("welcome to the medium level youve got 4 tries to guess a number between 1 to 20 ")
+        i = 1
+        while i <= 4:
+            try:
+                user_guess = int(input("enter your guess>>>  "))
+
+                if user_guess == secretnumber:
+                    print("correct guess  ")
+                    break
+                elif i == 4:
+                    print("game over ")
+                else:
+                    print("that was wrong")
+                    print("you have", 4 - i, "tries left")
+                i += 1
+            except ValueError:
+                print("oops enter a number ")
+
+    elif levelselection == "hard":
+        secretnumber = secret_number_three()
+        print("welcome to the hard level youve got 3 tries to guess a number between 1 to 50 ")
+        i = 1
+        while i <= 3:
+            try:
+                user_guess = int(input("enter your guess>>> "))
+
+                if user_guess == secretnumber:
+                    print("you got it right  ")
+                    break
+                elif i == 3:
+                    print("game over! ")
+                else:
+                    print("that was wrong you have", 3 - i, "tries left")
+                i += 1
+            except ValueError:
+                print("oops enter a number ")
+    else:
+        print("you didnt enter a specific level ")
+    play_again = input("""do you want to play again yes or no >>> """).lower()
+    if play_again == "yes":
+        continue
+    else:
+        exit()
