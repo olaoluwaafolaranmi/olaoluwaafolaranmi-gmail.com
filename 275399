@@ -1,0 +1,86 @@
+import random
+
+
+def level_selection():
+
+    user_input = input("""welcome to the capital guessing game 
+    we have three levels : easy, medium and hard 
+        enter easy for easy level
+        enter medium for medium level
+        enter hard for hard level
+        
+        >>>>  """).lower()
+    return user_input
+while True:
+    levelselection = level_selection()
+
+    def easy():
+        if levelselection == "easy":
+            secretnumber = random.randint(1,10)
+            print("welcome to the easy level youve got 6 tries to guess a number between 1 to 10 ")
+            i = 1
+            while i <= 6:
+                try:
+                    user_guess = int(input("enter your guess>>> "))
+
+                    if user_guess== secretnumber:
+                        print("correct guess  ")
+                        break
+                    elif i == 6:
+                        print("game over ")
+                    else:
+                        print("that was wrong")
+                        print("you have", 6-i , "tries left")
+                    i+=1
+                except ValueError:
+                    print("oops enter a number ")
+    easy()
+    def medium():
+        if levelselection == "medium":
+            secretnumber = random.randint(1, 20)
+            print("welcome to the medium level youve got 4 tries to guess a number between 1 to 20 ")
+            i = 1
+            while i <= 4:
+                try:
+                    user_guess = int(input("enter your guess>>>  "))
+
+                    if user_guess == secretnumber:
+                        print("correct guess  ")
+                        break
+                    elif i == 4:
+                        print("game over ")
+                    else:
+                        print("that was wrong")
+                        print("you have", 4 - i, "tries left")
+                    i += 1
+                except ValueError:
+                    print("oops enter a number ")
+    medium()
+    def hard():
+        if levelselection == "hard":
+            secretnumber = random.randint(1, 50)
+            print("welcome to the hard level youve got 3 tries to guess a number between 1 to 50 ")
+            i = 1
+            while i <= 3:
+                try:
+                    user_guess = int(input("enter your guess>>> "))
+
+                    if user_guess == secretnumber:
+                        print("you got it right  ")
+                        break
+                    elif i == 3:
+                        print("game over! ")
+                    else:
+                        print("that was wrong you have", 3 - i, "tries left")
+                    i += 1
+                except ValueError:
+                    print("oops enter a number ")
+    hard()
+
+    play_again = input("do you want to play again yes or no >>>")
+    if play_again == "yes":
+        print("_____________________________________ \n" * 2)
+        continue
+    else:
+
+        exit()
